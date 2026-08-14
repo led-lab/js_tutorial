@@ -5,8 +5,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Learn Enough JavaScript</title>
     <script>
-        alert("Hello, world!");
-        alert("Second Alert");
+        const weekdays = [
+            "Sunday",
+            "Monday",
+            "Tuesday",
+            "Wednesday",
+            "Thursday",
+            "Friday",
+            "Saturday"
+        ];
+        let now = new Date();
+        let weekday = weekdays[now.getDay()];
+        alert(`Hello, world! Happy ${weekday}`);
+        console.log("This page contains a friendly greeting.");
+        let first_name = "Michael";
+        let last_name = "Hartl";
+        console.log(first_name, last_name);
     </script>
 </head>
 <body>
