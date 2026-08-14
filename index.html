@@ -4,19 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Learn Enough JavaScript</title>
+    <script src="day.js"></script>
     <script>
-        const weekdays = [
-            "Sunday",
-            "Monday",
-            "Tuesday",
-            "Wednesday",
-            "Thursday",
-            "Friday",
-            "Saturday"
-        ];
         let now = new Date();
-        let weekday = weekdays[now.getDay()];
-        alert(`Hello, world! Happy ${weekday}`);
+        alert(greeting(now));
         console.log("This page contains a friendly greeting.");
         let first_name = "Michael";
         let last_name = "Hartl";
