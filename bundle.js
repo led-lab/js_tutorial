@@ -1,15 +1,25 @@
 (function(){function r(e,n,t){function o(i,f){if(!n[i]){if(!e[i]){var c="function"==typeof require&&require;if(!f&&c)return c(i,!0);if(u)return u(i,!0);var a=new Error("Cannot find module '"+i+"'");throw a.code="MODULE_NOT_FOUND",a}var p=n[i]={exports:{}};e[i][0].call(p.exports,function(r){var n=e[i][1][r];return o(n||r)},p,p.exports,r,e,n,t)}return n[i].exports}for(var u="function"==typeof require&&require,i=0;i<t.length;i++)o(t[i]);return o}return r})()({1:[function(require,module,exports){
 let Phrase = require("mhartl-palindrome");
 
-let input = prompt("Please enter a string for palindrome testing:");
-let phrase = new Phrase(input);
+function palindrome_tester(event) {
+    event.preventDefault();
 
+    let phrase = new Phrase(event.target.phrase.value);
+    let palindrome_result = document.querySelector("#palindromeResult");
 
-if (phrase.palindrome()) {
-    alert(`"${phrase.content} is a palindrome."`);
-} else {
-    alert(`"${phrase.content} is not a palindrome."`);
+    if (phrase.palindrome()) {
+        palindrome_result.innerHTML = `"${phrase.content} is a palindrome."`;
+    } else {
+        palindrome_result.innerHTML = `"${phrase.content} is not a palindrome."`;
+    }
 }
+
+document.addEventListener("DOMContentLoaded", function() {
+    let tester = document.querySelector("#palindromeTester");
+    tester.addEventListener("submit", function(event) {
+        palindrome_tester(event);
+    });
+});
 },{"mhartl-palindrome":2}],2:[function(require,module,exports){
 module.exports = Phrase;
 
