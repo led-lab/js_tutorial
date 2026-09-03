@@ -1,0 +1,15 @@
+#!/usr/bin/env node
+
+let urllib = require("urllib");
+let Phrase = require("mhartl-palindrome");
+let url = "https://cdn.learnenough.com/phrases.txt";
+
+urllib.request(url, { followRedirect: true }, function(error, data, response) {
+    let body = data.toString();
+    for (let line of body.split("\n")) {
+        let phrase = new Phrase(line);
+        if (phrase.palindrome()) {
+            console.log("palindrome detected:", line);
+        }
+    }
+});

@@ -1,0 +1,23 @@
+#!/usr/bin/env node
+
+let urllib = require("urllib");
+let url = "https://es.wikipedia.org/wiki/JavaScript";
+const jsdom = require("jsdom");
+const { JSDOM } = jsdom;
+
+console.log(url);
+
+urllib.request(url, { followRedirect: true }, function(error, data, response) {
+    let body = data.toString();
+    let { document } = (new JSDOM(body)).window;
+    let paragraphs = document.querySelectorAll("p");
+    let references = document.querySelectorAll(".reference");
+
+    for (let paragraph of paragraphs) {
+        console.log(paragraph.textContent);
+    };
+
+    for (let reference of references) {
+        reference.remove();
+    };
+});
